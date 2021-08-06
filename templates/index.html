@@ -130,7 +130,12 @@
                       <textarea id="json_source" name="updateData" class="materialize-textarea">{"data":[]}</textarea>
                       <label for="json_source">JSON Source</label>
                     </div>
-                    <div class="col s12">
+                    <div class="input-field col s12 m6">
+                      <button class="btn waves-effect waves-light btn-large blue accent-2" type="submit" name="action">Update Chart
+                        <i class="material-icons right">insert_chart</i>
+                      </button>
+                    </div>
+                    <div class="input-field col s12 m6 right-align">
                       <button class="btn waves-effect waves-light btn-large" type="submit" name="action">Publish Data
                         <i class="material-icons right">send</i>
                       </button>
@@ -181,7 +186,8 @@
         $('.collapsible').collapsible();
         $('select').formSelect();
 
-        // $('#json_source').val('New Text');
+        const defaultData = {data:[]}
+        $('#json_source').val(JSON.stringify(defaultData, undefined, 2));
         M.textareaAutoResize($('#json_source'));
       });
     </script>
