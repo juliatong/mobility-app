@@ -12,3 +12,9 @@ pip install -r requirements.txt
 ```
 flask run
 ```
+
+Access the site at <http://localhost:5000>.
+
+## Screen Shot
+
+![Screenshot](./screenshot.png)
