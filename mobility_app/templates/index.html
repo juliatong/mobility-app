@@ -159,45 +159,6 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-      const labels = [
-        'January',
-        'February',
-        'March',
-        'April',
-        'May',
-        'June',
-      ];
-      const data = {
-        labels: labels,
-        datasets: [{
-          label: 'My First dataset',
-          backgroundColor: 'rgb(255, 99, 132)',
-          borderColor: 'rgb(255, 99, 132)',
-          data: [0, 10, 5, 2, 20, 30, 45],
-        }]
-      };
-
-      const config = {
-        type: 'line',
-        data,
-        options: {}
-      };
-
-      const myChart = new Chart(
-        document.getElementById('myChart'),
-        config
-      );
-
-      $(document).ready(function(){
-        M.updateTextFields();
-        $('.collapsible').collapsible();
-        $('select').formSelect();
-
-        const defaultData = {data:[]}
-        $('#json_source').val(JSON.stringify(defaultData, undefined, 2));
-        M.textareaAutoResize($('#json_source'));
-      });
-    </script>
+    <script src="../static/app.js"></script>
   </body>
 </html>
