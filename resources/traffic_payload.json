@@ -1,0 +1,182 @@
+[
+  {
+    "alternative_name": null,
+    "country": "United States",
+    "geo_type": "county",
+    "id": 1,
+    "region_name": "Washington County",
+    "sub_region": "Indiana",
+    "direction_requests": {
+      "2020-01-20": 1000.4,
+      "2020-01-21": 188.4,
+    }
+  },
+  {
+    "alternative_name": null,
+    "country": "United States",
+    "geo_type": "county",
+    "id": 2,
+    "region_name": "Washington County",
+    "sub_region": "Florida"
+  },
+  {
+    "alternative_name": null,
+    "country": "United States",
+    "geo_type": "county",
+    "id": 3,
+    "region_name": "Washington County",
+    "sub_region": "Pennsylvania"
+  },
+  {
+    "alternative_name": null,
+    "country": "United States",
+    "geo_type": "county",
+    "id": 4,
+    "region_name": "Washington County",
+    "sub_region": "New York"
+  },
+  {
+    "alternative_name": null,
+    "country": "United States",
+    "geo_type": "county",
+    "id": 5,
+    "region_name": "Washington County",
+    "sub_region": "Oklahoma"
+  },
+  {
+    "alternative_name": null,
+    "country": "United States",
+    "geo_type": "county",
+    "id": 6,
+    "region_name": "Washington County",
+    "sub_region": "Wisconsin"
+  },
+  {
+    "alternative_name": null,
+    "country": "United States",
+    "geo_type": "county",
+    "id": 7,
+    "region_name": "Washington County",
+    "sub_region": "Oregon"
+  },
+  {
+    "alternative_name": null,
+    "country": "United States",
+    "geo_type": "county",
+    "id": 8,
+    "region_name": "Washington County",
+    "sub_region": "Vermont"
+  },
+  {
+    "alternative_name": null,
+    "country": "United States",
+    "geo_type": "county",
+    "id": 9,
+    "region_name": "Washington County",
+    "sub_region": "Nebraska"
+  },
+  {
+    "alternative_name": null,
+    "country": "United States",
+    "geo_type": "county",
+    "id": 10,
+    "region_name": "Washington County",
+    "sub_region": "Tennessee"
+  },
+  {
+    "alternative_name": null,
+    "country": "United States",
+    "geo_type": "county",
+    "id": 11,
+    "region_name": "Washington County",
+    "sub_region": "Maryland"
+  },
+  {
+    "alternative_name": null,
+    "country": "United States",
+    "geo_type": "county",
+    "id": 12,
+    "region_name": "Washington County",
+    "sub_region": "Georgia"
+  },
+  {
+    "alternative_name": null,
+    "country": "United States",
+    "geo_type": "county",
+    "id": 13,
+    "region_name": "Washington County",
+    "sub_region": "Rhode Island"
+  },
+  {
+    "alternative_name": null,
+    "country": "United States",
+    "geo_type": "county",
+    "id": 14,
+    "region_name": "Washington County",
+    "sub_region": "Mississippi"
+  },
+  {
+    "alternative_name": null,
+    "country": "United States",
+    "geo_type": "county",
+    "id": 15,
+    "region_name": "Washington County",
+    "sub_region": "Ohio"
+  },
+  {
+    "alternative_name": null,
+    "country": "United States",
+    "geo_type": "county",
+    "id": 16,
+    "region_name": "Washington County",
+    "sub_region": "Virginia"
+  },
+  {
+    "alternative_name": null,
+    "country": "United States",
+    "geo_type": "county",
+    "id": 17,
+    "region_name": "Washington County",
+    "sub_region": "Minnesota"
+  },
+  {
+    "alternative_name": null,
+    "country": "United States",
+    "geo_type": "county",
+    "id": 18,
+    "region_name": "Washington County",
+    "sub_region": "Texas"
+  },
+  {
+    "alternative_name": null,
+    "country": "United States",
+    "geo_type": "county",
+    "id": 19,
+    "region_name": "Washington County",
+    "sub_region": "Iowa"
+  },
+  {
+    "alternative_name": null,
+    "country": "United States",
+    "geo_type": "county",
+    "id": 20,
+    "region_name": "Washington County",
+    "sub_region": "Arkansas"
+  },
+  {
+    "alternative_name": null,
+    "country": "United States",
+    "geo_type": "county",
+    "id": 21,
+    "region_name": "Washington County",
+    "sub_region": "Illinois"
+  },
+  {
+    "alternative_name": null,
+    "country": "United States",
+    "geo_type": "county",
+    "id": 22,
+    "region_name": "Washington County",
+    "sub_region": "Utah"
+  }
+]

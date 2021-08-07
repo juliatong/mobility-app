@@ -44,11 +44,6 @@ def read_regions(geo_type: str):
   return {'geoType': geo_type, 'regions': []}
 
 
-@app.get("/api/locations/{region_id}")
-def read_locations(region_id: int):
-  return {'locations': []}
-
-
 @app.get("/api/traffic")
 def read_traffic():
   return {'locations': []}
