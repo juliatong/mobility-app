@@ -25,6 +25,7 @@ CREATE TABLE `mobility_data`.`direction_requests` (
   `transportation_type` ENUM ("driving", "transit", "walking") NOT NULL,
   `request_date` DATE NOT NULL,
   `requests` DECIMAL(10,2) NOT NULL,
+  `locked` BOOL DEFAULT false NOT NULL,
   INDEX (`location_id`),
   INDEX (`transportation_type`),
   PRIMARY KEY (`id`));
