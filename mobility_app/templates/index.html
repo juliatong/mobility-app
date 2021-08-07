@@ -123,11 +123,11 @@
             <li>
               <div class="collapsible-header"><i class="material-icons">edit</i>Manipulate Data</div>
               <div class="collapsible-body">
-                <form id="publishForm" action="#">
+                <form id="publish-form" action="#">
                   <div class="row">
                     <div class="input-field col s12">
-                      <textarea id="json_source" name="updateData" class="materialize-textarea">{"data":[]}</textarea>
-                      <label for="json_source">JSON Source</label>
+                      <textarea id="dataSource" name="updateData" class="materialize-textarea"></textarea>
+                      <label for="dataSource">Data Source (JSON)</label>
                     </div>
                     <div class="input-field col s12 m6">
                       <input placeholder="3000" id="maxTrafficRequestAllowed" name="maxTrafficRequestAllowed" type="text">
@@ -142,7 +142,7 @@
                       </p>
                     </div>
                     <div class="input-field col s12 m6">
-                      <button class="btn waves-effect waves-light btn-large blue accent-2" type="submit" name="action">Update Chart
+                      <button class="btn waves-effect waves-light btn-large blue accent-2" name="action">Update Chart
                         <i class="material-icons right">insert_chart</i>
                       </button>
                     </div>
