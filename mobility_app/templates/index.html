@@ -29,7 +29,8 @@
                   <div class="row">
                     <div class="input-field col s12 m6">
                       <select name="geoType" id="geoTypeSelector">
-                        <option value="" disabled selected>Choose one</option>
+                        <option value="" disabled>Choose one</option>
+                        <option value="all" selected>Select All</option>
                         <option value="country_region">Country / Region</option>
                         <option value="city">City</option>
                         <option value="sub_region">Sub-Region</option>
@@ -40,10 +41,8 @@
 
                     <div class="input-field col s12 m6">
                       <select name="region" id="regionSelector">
-                        <option value="" disabled selected>Choose one</option>
-                        <option value="1">Albania</option>
-                        <option value="2">Argentina</option>
-                        <option value="3">Australia</option>
+                        <option value="" disabled>Choose one</option>
+                        <option value="all" selected>Select All</option>
                       </select>
                       <label for="regionSelector">Region</label>
                     </div>
@@ -55,7 +54,7 @@
                     <div class="input-field col s12 m2">
                       <p>
                         <label>
-                          <input type="checkbox" name="showTransit" value="true" />
+                          <input type="checkbox" name="showTransit" value="true" checked="checked" />
                           <span>Transit</span>
                         </label>
                       </p>
@@ -64,7 +63,7 @@
                     <div class="input-field col s12 m2">
                       <p>
                         <label>
-                          <input type="checkbox" name="showDriving" value="true" />
+                          <input type="checkbox" name="showDriving" value="true" checked="checked" />
                           <span>Driving</span>
                         </label>
                       </p>
@@ -73,7 +72,7 @@
                     <div class="input-field col s12 m2">
                       <p>
                         <label>
-                          <input type="checkbox" name="showWalking" value="true" />
+                          <input type="checkbox" name="showWalking" value="true" checked="checked" />
                           <span>Walking</span>
                         </label>
                       </p>
@@ -88,13 +87,13 @@
                       <label>Traffic Filter</label>
                     </div>
                     <div class="input-field col s12 m4">
-                      <input placeholder="Filter by amount of traffic" id="trafficFilterAmt" name="trafficFilterAmt" type="text">
+                      <input placeholder="Filter by amount of daily traffic" id="trafficFilterAmt" name="trafficFilterAmt" type="text">
                       <label for="trafficFilterAmt">Amount</label>
                     </div>
 
                     <div class="col s12">
-                      <button class="btn waves-effect waves-light btn-large" type="submit" name="action">Update Chart
-                        <i class="material-icons right">send</i>
+                      <button class="btn waves-effect waves-light btn-large blue accent-2" type="submit" name="action">Update Chart
+                        <i class="material-icons right">insert_chart</i>
                       </button>
                     </div>
                   </div>
@@ -130,10 +129,9 @@
                       <textarea id="json_source" name="updateData" class="materialize-textarea">{"data":[]}</textarea>
                       <label for="json_source">JSON Source</label>
                     </div>
-                    <div class="input-field col s12 m2">
-                      <button class="btn waves-effect waves-light btn-large blue accent-2" type="submit" name="action">Update Chart
-                        <i class="material-icons right">insert_chart</i>
-                      </button>
+                    <div class="input-field col s12 m6">
+                      <input placeholder="3000" id="maxTrafficRequestAllowed" name="maxTrafficRequestAllowed" type="text">
+                      <label for="maxTrafficRequestAllowed">Max Number of Traffic Requests Allowed Per Day</label>
                     </div>
                     <div class="input-field col s12 m4">
                       <p>
@@ -142,6 +140,11 @@
                           <span>Lock Data</span>
                         </label>
                       </p>
+                    </div>
+                    <div class="input-field col s12 m6">
+                      <button class="btn waves-effect waves-light btn-large blue accent-2" type="submit" name="action">Update Chart
+                        <i class="material-icons right">insert_chart</i>
+                      </button>
                     </div>
                     <div class="input-field col s12 m6 right-align">
                       <button class="btn waves-effect waves-light btn-large" type="submit" name="action">Publish Data
