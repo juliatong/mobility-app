@@ -14,8 +14,9 @@ from dotenv import load_dotenv
 load_dotenv()
 
 from flaskext.mysql import MySQL
+import pymysql
 
-mysql = MySQL()
+mysql = MySQL(autocommit=True,cursorclass=pymysql.cursors.DictCursor)
 
 mobility_app.config['MYSQL_DATABASE_USER'] = os.getenv('MYSQL_DATABASE_USER', 'root')
 mobility_app.config['MYSQL_DATABASE_PASSWORD'] = os.getenv('MYSQL_DATABASE_PASSWORD', '')
