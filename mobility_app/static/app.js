@@ -43,7 +43,6 @@ $(document).ready(function(){
   $('#geoTypeSelector').on('change', function() {
     $.get('/api/regions?geoType=' + $(this).val(), function(data, status){
       if (status === 'success') {
-        console.log(data)
         $el = $('#regionSelector')
         $el.empty();
         $el.append($('<option></option>').attr('disabled', true).text('Choose one'));
@@ -52,6 +51,8 @@ $(document).ready(function(){
           $el.append($('<option></option>').attr('value', region.id).text(region.name));
         })
         $('select').formSelect();
+      } else {
+        console.error(status)
       }
     });
   })
