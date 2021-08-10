@@ -21,6 +21,8 @@ Access the site at <http://localhost:5000>.
 
 ![Screenshot](./screenshot.png)
 
+![Screenshot2](./screenshot2.png)
+
 ## Common Issues
 
 If you run into issues installing Pandas, try running these commands:
