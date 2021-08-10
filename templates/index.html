@@ -7,158 +7,224 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   </head>
   <body>
-    <div class="container">
-      <div class="row">
-        <div class="col s12">
-          <nav>
-            <div class="nav-wrapper purple lighten-1">
-              &nbsp;
-              <a href="#" class="brand-logo">Mobility Explorer</a>
-            </div>
-          </nav>
-        </div>
+    <div class="row">
+      <div class="col s12">
+        <nav>
+          <div class="nav-wrapper purple lighten-1">
+            &nbsp;
+            <a href="#" class="brand-logo">Mobility Explorer</a>
+          </div>
+        </nav>
       </div>
+    </div>
 
-      <div class="row">
-        <div class="col s12">
-          <ul class="collapsible">
-            <li>
-              <div class="collapsible-header"><i class="material-icons">search</i>Filters</div>
-              <div class="collapsible-body">
-                <form id="filter-form" action="#">
-                  <div class="row">
-                    <div class="input-field col s12 m6">
-                      <select name="geoType" id="geoTypeSelector">
-                        <option value="" disabled>Choose one</option>
-                        <option value="all" selected>Select All</option>
-                        <option value="country_region">Country / Region</option>
-                        <option value="city">City</option>
-                        <option value="sub_region">Sub-Region</option>
-                        <option value="county">County</option>
-                      </select>
-                      <label for="geoTypeSelector">Geo Type</label>
-                    </div>
-
-                    <div class="input-field col s12 m6">
-                      <select name="region" id="regionSelector">
-                        <option value="" disabled>Choose one</option>
-                        <option value="all" selected>Select All</option>
-                      </select>
-                      <label for="regionSelector">Region</label>
-                    </div>
-
-                    <div class="col s12">
-                      <label>Transportation</label>
-                    </div>
-
-                    <div class="input-field col s12 m2">
-                      <p>
-                        <label>
-                          <input type="checkbox" name="showTransit" value="true" checked="checked" />
-                          <span>Transit</span>
-                        </label>
-                      </p>
-                    </div>
-
-                    <div class="input-field col s12 m2">
-                      <p>
-                        <label>
-                          <input type="checkbox" name="showDriving" value="true" checked="checked" />
-                          <span>Driving</span>
-                        </label>
-                      </p>
-                    </div>
-
-                    <div class="input-field col s12 m2">
-                      <p>
-                        <label>
-                          <input type="checkbox" name="showWalking" value="true" checked="checked" />
-                          <span>Walking</span>
-                        </label>
-                      </p>
-                    </div>
-                    <div class="input-field col s12 m2">
-                      <select name="trafficFilterModifier">
-                        <option value="" disabled>Choose one</option>
-                        <option value="none" selected>None</option>
-                        <option value="greater_than">Greater Than</option>
-                        <option value="less_than">Less Than</option>
-                      </select>
-                      <label>Traffic Filter</label>
-                    </div>
-                    <div class="input-field col s12 m4">
-                      <input placeholder="Filter by amount of daily traffic" id="trafficFilterAmt" name="trafficFilterAmt" type="text">
-                      <label for="trafficFilterAmt">Amount</label>
-                    </div>
-
-                    <div class="col s12">
-                      <button class="btn waves-effect waves-light btn-large blue accent-2" type="submit" name="action">Update Chart
-                        <i class="material-icons right">insert_chart</i>
-                      </button>
-                    </div>
-                  </div>
-                </form>
+    <div class="row">
+      <div class="col s12 m7">
+        <div class="row">
+          <div class="col s12">
+            <div class="card">
+              <div class="card-content">
+                <span class="card-title">COVID-19 Mobility Data <span id="currentDatasetLabel"></span></span>
+                <div>
+                  <canvas id="dataChart"></canvas>
+                </div>
               </div>
-            </li>
-          </ul>
-        </div>
-      </div>
+            </div>
+          </div>
 
-      <div class="row">
-        <div class="col s12">
-          <div class="card">
-            <div class="card-content">
-              <span class="card-title">COVID-19 Mobility Data</span>
-              <div>
-                <canvas id="myChart"></canvas>
+          <div class="col s12">
+            <div class="card">
+              <div class="card-content">
+                <span class="card-title">Data Set</span>
+                <div>
+                  <table class="striped">
+                    <thead>
+                      <tr>
+                          <th>Geo Type</th>
+                          <th>Region</th>
+                          <th>Select</th>
+                      </tr>
+                    </thead>
+
+                    <tbody id="dataset-list">
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+      <div class="col s12 m5">
+        <div class="row">
+          <div class="col s12">
+            <ul class="collapsible expandable">
+              <li>
+                <div class="collapsible-header"><i class="material-icons">map</i>Filter By Region</div>
+                <div class="collapsible-body">
+                  <form id="filter-region-form" action="#">
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <select name="geoType" id="geoTypeSelector">
+                          <option value="" disabled selected>Choose one</option>
+                          <option value="country">Country / Region</option>
+                          <option value="city">City</option>
+                          <option value="sub-region">Sub-Region</option>
+                          <option value="county">County</option>
+                        </select>
+                        <label for="geoTypeSelector">Geo Type</label>
+                      </div>
 
-      <div class="row">
-        <div class="col s12">
-          <ul class="collapsible">
-            <li>
-              <div class="collapsible-header"><i class="material-icons">edit</i>Manipulate Data</div>
-              <div class="collapsible-body">
-                <form id="publish-form" action="#">
-                  <div class="row">
-                    <div class="input-field col s12">
-                      <textarea id="dataSource" name="updateData" class="materialize-textarea"></textarea>
-                      <label for="dataSource">Data Source (JSON)</label>
+                      <div class="input-field col s12">
+                        <select name="region" id="regionSelector">
+                          <option value="" disabled selected>Choose one</option>
+                        </select>
+                        <label for="regionSelector">Region</label>
+                      </div>
+
+                      <div class="col s12">
+                        <label>Transportation</label>
+                      </div>
+
+                      <div class="input-field col s12 m3">
+                        <p>
+                          <label>
+                            <input type="checkbox" name="showTransit" value="true" checked="checked" />
+                            <span>Transit</span>
+                          </label>
+                        </p>
+                      </div>
+
+                      <div class="input-field col s12 m3">
+                        <p>
+                          <label>
+                            <input type="checkbox" name="showDriving" value="true" checked="checked" />
+                            <span>Driving</span>
+                          </label>
+                        </p>
+                      </div>
+
+                      <div class="input-field col s12 m3">
+                        <p>
+                          <label>
+                            <input type="checkbox" name="showWalking" value="true" checked="checked" />
+                            <span>Walking</span>
+                          </label>
+                        </p>
+                      </div>
+                      <div class="col s12">
+                        <button class="btn waves-effect waves-light btn-large blue accent-2" type="submit" name="action">Download Data
+                          <i class="material-icons right">cloud_download</i>
+                        </button>
+                      </div>
                     </div>
-                    <div class="input-field col s12 m6">
-                      <input placeholder="3000" id="maxTrafficRequestAllowed" name="maxTrafficRequestAllowed" type="text">
-                      <label for="maxTrafficRequestAllowed">Max Number of Traffic Requests Allowed Per Day</label>
+                  </form>
+                </div>
+              </li>
+              <li>
+                <div class="collapsible-header"><i class="material-icons">directions_bike</i>Filter By Traffic</div>
+                <div class="collapsible-body">
+                  <form id="filter-traffic-form" action="#">
+                    <div class="row">
+                      <div class="input-field col s12 m6">
+                        <select name="traffic_filter_type" id="trafficFilterType">
+                          <option value="" disabled>Choose one</option>
+                          <option value="gt" selected>Greater Than</option>
+                          <option value="lt">Less Than</option>
+                        </select>
+                        <label>Traffic Filter</label>
+                      </div>
+                      <div class="input-field col s12 m6">
+                        <input placeholder="Filter by amount of daily traffic" id="trafficFilterAmt" name="traffic_filter_amount" type="text">
+                        <label for="trafficFilterAmt">Amount</label>
+                      </div>
+                      <div class="col s12">
+                        <label>Transportation</label>
+                      </div>
+
+                      <div class="input-field col s12 m3">
+                        <p>
+                          <label>
+                            <input type="checkbox" name="showTransit" value="true" checked="checked" />
+                            <span>Transit</span>
+                          </label>
+                        </p>
+                      </div>
+
+                      <div class="input-field col s12 m3">
+                        <p>
+                          <label>
+                            <input type="checkbox" name="showDriving" value="true" checked="checked" />
+                            <span>Driving</span>
+                          </label>
+                        </p>
+                      </div>
+
+                      <div class="input-field col s12 m3">
+                        <p>
+                          <label>
+                            <input type="checkbox" name="showWalking" value="true" checked="checked" />
+                            <span>Walking</span>
+                          </label>
+                        </p>
+                      </div>
+
+                      <div class="col s12">
+                        <button class="btn waves-effect waves-light btn-large blue accent-2" type="submit" name="action">Download Data
+                          <i class="material-icons right">cloud_download</i>
+                        </button>
+                      </div>
+
+                      <div class="col s12 hide" id="filter-traffic-form-loader">
+                        <div class="progress">
+                          <div class="indeterminate"></div>
+                        </div>
+                      </div>
                     </div>
-                    <div class="input-field col s12 m4">
-                      <p>
-                        <label>
-                          <input type="checkbox" name="lockData" value="true" />
-                          <span>Lock Data</span>
-                        </label>
-                      </p>
+                  </form>
+                </div>
+              </li>
+              <li>
+                <div class="collapsible-header"><i class="material-icons">edit</i>Manipulate Data</div>
+                <div class="collapsible-body">
+                  <form id="publish-form" action="#">
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <textarea id="dataSource" name="dataSource" class="materialize-textarea"></textarea>
+                        <label for="dataSource">Data Source (JSON)</label>
+                      </div>
+                      <div class="input-field col s12 m8">
+                        <input placeholder="3000" id="maxTrafficRequestAllowed" name="maxTrafficRequestAllowed" type="text">
+                        <label for="maxTrafficRequestAllowed">Max Number of Traffic Requests Allowed Per Day</label>
+                      </div>
+                      <div class="input-field col s12 m4">
+                        <p>
+                          <label>
+                            <input type="checkbox" name="lockData" value="true" />
+                            <span>Lock Data</span>
+                          </label>
+                        </p>
+                      </div>
+                      <div class="input-field col s12 m6">
+                        <button class="btn waves-effect waves-light btn-large blue accent-2" id="updateChart">Update Chart
+                          <i class="material-icons right">insert_chart</i>
+                        </button>
+                      </div>
+                      <div class="input-field col s12 m6 right-align">
+                        <button class="btn waves-effect waves-light btn-large" type="submit" name="action">Publish Data
+                          <i class="material-icons right">send</i>
+                        </button>
+                      </div>
                     </div>
-                    <div class="input-field col s12 m6">
-                      <button class="btn waves-effect waves-light btn-large blue accent-2" name="action">Update Chart
-                        <i class="material-icons right">insert_chart</i>
-                      </button>
-                    </div>
-                    <div class="input-field col s12 m6 right-align">
-                      <button class="btn waves-effect waves-light btn-large" type="submit" name="action">Publish Data
-                        <i class="material-icons right">send</i>
-                      </button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </li>
-          </ul>
+                  </form>
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
