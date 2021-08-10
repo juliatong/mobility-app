@@ -1,26 +1,49 @@
-const labels = [
-  'January',
-  'February',
-  'March',
-  'April',
-  'May',
-  'June',
-];
+const CHART_COLORS = {
+  red: 'rgb(255, 99, 132)',
+  orange: 'rgb(255, 159, 64)',
+  yellow: 'rgb(255, 205, 86)',
+  green: 'rgb(75, 192, 192)',
+  blue: 'rgb(54, 162, 235)',
+  purple: 'rgb(153, 102, 255)',
+  grey: 'rgb(201, 203, 207)'
+}
+
+const NAMED_COLORS = [
+  CHART_COLORS.red,
+  CHART_COLORS.orange,
+  CHART_COLORS.yellow,
+  CHART_COLORS.green,
+  CHART_COLORS.blue,
+  CHART_COLORS.purple,
+  CHART_COLORS.grey,
+]
+
+const namedColor = function(index) {
+  return NAMED_COLORS[index % NAMED_COLORS.length];
+}
+
+const labels = [];
 const data = {
   labels: labels,
   datasets: [{
-    label: 'My First dataset',
+    label: '',
     backgroundColor: 'rgb(255, 99, 132)',
     borderColor: 'rgb(255, 99, 132)',
-    data: [0, 10, 5, 2, 20, 30, 45],
+    data: [],
   }]
-};
+}
 
 const config = {
   type: 'line',
   data,
-  options: {}
-};
+  options: {
+    plugins: {
+      legend: {
+        position: 'bottom'
+      }
+    }
+  }
+}
 
 const myChart = new Chart(
   document.getElementById('myChart'),
@@ -34,10 +57,12 @@ const populateDataSource= function(data) {
 
 $(document).ready(function(){
   M.updateTextFields();
-  $('.collapsible').collapsible();
+  $('.collapsible').collapsible({
+    accordion: false
+  });
   $('select').formSelect();
 
-  const defaultData = {data:[]}
+  const defaultData = []
   populateDataSource(defaultData)
 
   $('#geoTypeSelector').on('change', function() {
