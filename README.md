@@ -15,11 +15,13 @@ pipenv install
 uvicorn main:app --reload
 ```
 
-Access the site at <http://localhost:5000>.
+Access the site at <http://localhost:8000>.
 
 ## Screen Shot
 
 ![Screenshot](./screenshot.png)
+
+![Screenshot2](./screenshot2.png)
 
 ## Common Issues
 
