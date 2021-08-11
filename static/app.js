@@ -296,7 +296,7 @@ const lockDataset = function(regionData) {
       contentType: 'application/json',
       data: JSON.stringify(formData),
       success: function(response) {
-        console.log('Locked Data for:', trafficType)
+        console.log('Locked Data for:', transportationType.join(','))
       },
       error: function(error) {
         console.error(error)
