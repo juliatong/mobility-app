@@ -193,6 +193,14 @@ def update_traffic(traffic_payload: UpdateTrafficPayload):
 
         for data in update_data:
             if data[0]:
+
+                # Convert string to float
+                for k, v in data[0].items():
+                    if v == '':
+                        data[0][k] = 0
+                    else:
+                        data[0][k] = float(v)
+
                 traffic_dataframe = region_data[region_data.transportation_type == data[1]]
                 traffic_dict = traffic_dataframe.to_dict(orient='records')
                 traffic_dict[0].update(data[0])
