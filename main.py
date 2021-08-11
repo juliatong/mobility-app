@@ -171,16 +171,19 @@ def update_traffic(traffic_payload: UpdateTrafficPayload):
         region_data = pd.read_sql_query(f"SELECT "
                                         f"* FROM regions "
                                         f"WHERE region = '{traffic_payload.region}' "
-                                        f"AND `sub-region` = '{traffic_payload.sub_region}' "
-                                        f"AND lock = 0",
+                                        f"AND `sub-region` = '{traffic_payload.sub_region}' ",
                                         engine)
     else:
         region_data = pd.read_sql_query(f"SELECT "
                                         f"* FROM regions "
                                         f"WHERE region = '{traffic_payload.region}' "
-                                        f"AND `sub-region` IS NULL "
-                                        f"AND lock = 0",
+                                        f"AND `sub-region` IS NULL ",
                                         engine)
+    if region_data.empty:
+        return {'error': f'Region {traffic_payload.region} not found'}
+
+    if not region_data[region_data.lock == 1].empty:
+        return {'error': f'Region {traffic_payload.region} is locked'}
 
     # Combine the data with non data columns
     # Delete the original data

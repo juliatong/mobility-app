@@ -430,12 +430,17 @@ $(document).ready(function(){
             type: 'PUT',
             contentType: 'application/json',
             data: JSON.stringify(formData),
-            success: function(_) {
-              if (isFormFieldChecked($('#publish-form'), 'lockData')) {
-                lockDataset(regionData)
-                alert(`New data for ${regionData.region_name} has been published and locked.`)
+            success: function(response) {
+              if (response.hasOwnProperty('error')) {
+                console.error('Error:', response.error)
+                alert(`Error: ${response.error}`)
               } else {
-                alert(`New data for ${regionData.region_name} has been published.`)
+                if (isFormFieldChecked($('#publish-form'), 'lockData')) {
+                  lockDataset(regionData)
+                  alert(`New data for ${regionData.region_name} has been published and locked.`)
+                } else {
+                  alert(`New data for ${regionData.region_name} has been published.`)
+                }
               }
             },
             error: function(error) {
