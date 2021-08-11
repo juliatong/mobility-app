@@ -37,9 +37,31 @@ const config = {
   type: 'line',
   data,
   options: {
+    responsive: true,
     plugins: {
       legend: {
         position: 'bottom'
+      }
+    },
+    scales: {
+      x: {
+        grid: {
+          display: true,
+          drawBorder: true,
+          drawOnChartArea: true,
+          drawTicks: true,
+        }
+      },
+      y: {
+        grid: {
+          drawBorder: false,
+          color: function(context) {
+            if (context.tick.value == 100) {
+              return '#000000'
+            }
+            return '#cccccc'
+          },
+        },
       }
     }
   }
