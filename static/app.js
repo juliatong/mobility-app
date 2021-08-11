@@ -274,7 +274,7 @@ const lockDataset = function(regionData) {
 
     const transportationTypes = ['transit', 'driving', 'walking']
     transportationTypes.forEach( trafficType => {
-      if (regionData.direction_requests[trafficType]) {
+      if (Object.values(regionData.direction_requests[trafficType]).length > 0) {
         transportationType.push(trafficType)
       }
     })
@@ -444,8 +444,15 @@ $(document).ready(function(){
           let formData = {
             region: regionData.region_name,
             sub_region: regionData.sub_region,
-            traffic: regionData.direction_requests
+            traffic: {}
           }
+
+          const transportationTypes = ['transit', 'driving', 'walking']
+          transportationTypes.forEach( trafficType => {
+            if (Object.values(regionData.direction_requests[trafficType]).length > 0) {
+              formData.traffic[trafficType] = regionData.direction_requests[trafficType]
+            }
+          })
 
           $.ajax({
             url: '/api/traffic',
